@@ -16,3 +16,11 @@ Supported: Grand Theft Auto V
 
 Grand Theft Auto V by Rockstar Games,
 All third parties rights reserved.
+
+
+
+Venator:
+Youtube/user VenatorMods
+Github / Venator5824
+
+Donate via PayPal: VenatorMods.GTAV@outlook.de
