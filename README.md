@@ -19,8 +19,11 @@ All third parties rights reserved.
 
 
 
-Venator:
-Youtube/user VenatorMods
+# Author: Venator
+
+Youtube/user VenatorMods: https://www.youtube.com/@VenatorMods
+NexusMods VenatorMods: https://www.nexusmods.com/profile/VenatorsMods
+
 Github / Venator5824
 
 Donate via PayPal: VenatorMods.GTAV@outlook.de
