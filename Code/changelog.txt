@@ -1,0 +1,2 @@
+Current version up-to-date:
+0.8.2
