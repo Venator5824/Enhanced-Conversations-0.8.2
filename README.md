@@ -31,5 +31,7 @@ NexusMods VenatorMods: https://www.nexusmods.com/profile/VenatorsMods
 
 Github / Venator5824
 
-Donate via PayPal: VenatorMods.GTAV@outlook.de
--
+
+##### Donate via PayPal:
+VenatorMods.GTAV@outlook.de
+
