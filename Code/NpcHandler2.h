@@ -27,9 +27,74 @@ struct NpcBrain {
 	uint32_t MaxConvoManagerNodes = 1; // max 1 conversation at the time
 		// following is only for later UE5 or similar port:
 	std::string ragdollstate;
-	uint32_t ragdolltaskid;
 	bool hasRRdesire;
 	bool hasRRdrug;
 };
+
+struct EntityManager { // always for each npc , must be mapped to array list later into same ram places, for mass enttiy
+	uint16_t UniqueID;  // mandatory, hash or int
+	NpcBrain Brain = nullptr; // only activate when required
+	uint8_t state; // what submanager he is in. combat, talking, idle, scripted, blocked, scenario, custom, ...
+	uint8_t bodystate; // the state his body is in. 
+	uint8_t ragdollstate; // what he is doing. e.g. when he is falling, the manager knows that for the duration of hte falling, the AI manager does not need to do FOV or EQS checks -> less CPU weight
+	Vec3 pos; // when req
+	Vec3 rotvec; // when req
+	float rotw; // when req
+	bool AllowAIHandle; // AI Handle == CPP code that runs for each npc. if false only high level script will take, will T pose else
+}
+
+struct StateID {
+	IDLE = 1;
+	SCENARIO = 2;
+	COMBAT = 3;
+	SCRIPTED = 4;
+	BLOCKED = 5;
+	DEAD = 6;
+}
+
+// following are only active for each npc when required.
+struct CombatManager {
+	NpcCombatInfo = ConfigReader::NpcReader.CombatData;
+	bool AllowCombat;
+	float updatepriority;
+	bool AutoAssignCombatAIHandle;
+	uint8_t CombatState;
+}
+
+struct ScriptManager {
+	bool AllowScript; // t / f
+	bool IsInScript; // t / f
+	uint8_t ReCheckTimerS; // recheck if script still ative timer
+	bool DisableRR; // disables RR for time of script
+}
+
+struct ScenarioManager {
+	bool AllowScenario;
+	bool AutoAssignScenarioAIHandle;
+	uint16_t ScenarioState;
+}
+
+struct BlockedManager {
+	bool AllowBlocking; // true or false. if false, then this AI can not be blocked for the main handle
+}
+
+struct TransitionManager {
+	bool BlockTransition;
+}
+
+struct SpawnManager {
+	uint8_t updateintervalMS = 32;
+}
+
+struct DespawnManager {
+	uint8_t updateintervalMS = 32;
+}
+
+struct SystemManager {
+	uint8_t updateintervalMS = 16
+	uint32_t maxentityperloop = 0x55FFFF
+	uint8_T ThrowErrorRetries = 2;
+}
+
 
 // EOF
